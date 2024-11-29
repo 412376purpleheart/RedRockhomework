@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 方法一
+    let person = new Object()
+    person.name = 'NS'
+    person.age = '31'
+    console.log(person)
+    // 方法二
+    let person = {
+      name: 'NS',
+      age: '31'
+    }
+    console.log(person)
+    // 方法三
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+      this.sayname = () => {
+        console.log(this.name)
+      }
+      const p1 = new Person('NS', 31)
+      p1.sayname()
+      console.log(p1.age)
+    }
+  </script>
+</body>
+
+</html>
