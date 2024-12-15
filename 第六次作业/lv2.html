@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #comment-section {
+      width: 500px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    #comments-display {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+
+    #comment-input {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #comment-text {
+      flex: 1;
+      padding: 5px;
+    }
+
+    #send-comment {
+      padding: 5px 15px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="comment-section">
+    <h2>评论区</h2>
+    <div id="comments-display"></div>
+    <div id="comment-input">
+      <input type="text" id="comment-text" placeholder="请输入您的评论">
+      <button id="send-comment">发送</button>
+    </div>
+  </div>
+  <script>
+    const commentText = document.getElementById('comment-text');
+    const sendCommentButton = document.getElementById('send-comment');
+    const commentsDisplay = document.getElementById('comments-display');
+
+    sendCommentButton.addEventListener('click', function () {
+      const commentContent = commentText.value;
+
+      const commentElement = document.createElement('div');
+      commentElement.className = 'comment';
+      commentElement.innerHTML = `<p>${commentContent}</p>`;
+
+      commentsDisplay.insertBefore(commentElement, commentsDisplay.firstChild);
+
+      commentText.value = '';
+    });
+  </script>
+</body>
+
+</html>
