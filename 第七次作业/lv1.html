@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #content {
+      white-space: pre-wrap;
+      text-align: center;
+    }
+
+    .title {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="content"></div>
+  <script>
+    const poem = "明月几时有？把酒问青天。不知天上宫阙，今夕是何年。我欲乘风归去，又恐琼楼玉宇，高处不胜寒。起舞弄清影，何似在人间。\n转朱阁，低绮户，照无眠。不应有恨，何事长向别时圆？人有悲欢离合，月有阴晴圆缺，此事古难全。但愿人长久，千里共婵娟。";
+    const contentDiv = document.getElementById('content');
+    const title = document.createElement('span');
+    title.textContent = "《水调歌头·明月几时有》——苏轼\n";
+    title.className = 'title';
+    contentDiv.appendChild(title);
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      if (currentIndex < poem.length) {
+        contentDiv.textContent += poem[currentIndex];
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 200);
+  </script>
+</body>
+
+</html>
